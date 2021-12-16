@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+    <h1>Szia Uram!</h1>
+
+    <form action="#"></form>
+        <table>
+            <tr>
+                <td><label for="username">Írj be egy felhasználónevet!</label></td>
+                <td><input type="text" id="username" required></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><label for="email">Írd be az e-mail címedet!</label></td>
+                <td><input type="email" id="email" required></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><label for="password_1">Írj be egy jelszót!</label></td>
+                <td><input onkeyup="active()" type="password" id="password_1" required></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><label for="password_2">Írd be a jelszót még egyszer!</label></td>
+                <td><input onkeyup="active2()" disabled type="password" id="password_2" required></td>
+                <td><img src="./img/check_0075.png" hidden id="pw_check" alt="passwords_equal"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" disabled id="check_btn_reg"></td>
+                <td></td>
+                
+            </tr>
+        </table>
+    </form>
+
+
+
+    <script>
+      const password_1 = document.querySelector("#password_1");
+      const password_2 = document.querySelector("#password_2");
+      const check_btn = document.querySelector("#check_btn");
+      const pw_check = document.querySelector("#pw_check")
+      function active(){
+          if(password_1.value.length >= 6){
+            password_2.removeAttribute("disabled", "");
+          }else{
+            password_2.setAttribute("disabled", "");
+          }
+      }
+      function active2(){
+          if (password_1.value == password_2.value){
+            check_btn_reg.removeAttribute("disabled", "");
+            check_btn_reg.classList.add("active");
+            pw_check.removeAttribute("hidden", "");
+          }else{
+            check_btn_reg.setAttribute("disabled", "");
+            check_btn_reg.classList.remove("active");
+            pw_check.setAttribute("hidden", "");
+          }
+      }
+    </script>
+
+
+
+
+</body>
+</html>
